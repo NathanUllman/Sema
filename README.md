@@ -3,6 +3,7 @@
 A Semaphore
 
 Guide: https://cdkworkshop.com/20-typescript/20-create-project
+Also using: // https://dev.to/paulallies/deploy-your-static-react-app-to-aws-cloudfront-using-cdk-44hm
 
 ## How to Setup Project
 

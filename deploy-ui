@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Building React App and moving to website-ui folder"
+cd website/semaphore
+npm run build
+
+echo "Deploying UI stack"
+cd ../../cdk
+cdk synth # not needed, but catches build errors
+cdk deploy UIDeployment

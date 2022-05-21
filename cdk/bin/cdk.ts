@@ -1,10 +1,8 @@
 #!/usr/bin/env node
+import { App } from 'aws-cdk-lib';
 import 'source-map-support/register';
-import * as cdk from 'aws-cdk-lib';
-import { WebsiteCoreStack } from '../lib/cdk-stack';
+import { createAppliction } from '../lib/app-builder';
 
 
-const app = new cdk.App();
-new WebsiteCoreStack(app, 'SemaphoreWebsiteStack', {
-  env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
-});
+const app = new App();
+createAppliction(app)

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-echo "Moving to CDK Folder"
-cd cdk
-
-echo "Deploying CDK stuff"
-cdk deploy
