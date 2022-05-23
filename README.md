@@ -1,6 +1,10 @@
 # Semaphore
 
-A Semaphore
+Semaphore is a React App hosted on AWS. It's a personal project that I started from scratch following a few tutorials. All infrastructure is defined in CDK.
+
+This website is my playgroud, where I just try out AWS or React ideas. It does not have a DNS yet.
+
+_Why is it called Semaphore?_ : It's a programming word and I like it. There might have a deeper meaning where "This website coordinates my many thread of curiosity" but I haven't thought about it enough yet.
 
 Guide: https://cdkworkshop.com/20-typescript/20-create-project
 Also using: // https://dev.to/paulallies/deploy-your-static-react-app-to-aws-cloudfront-using-cdk-44hm
