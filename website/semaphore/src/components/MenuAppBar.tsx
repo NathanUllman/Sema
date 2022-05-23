@@ -11,12 +11,11 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 
-const pages = ["Home", "About", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
+// TODO: make the mobile and destop items shared (logo, menu items, etc)
 const MenuAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -94,14 +93,21 @@ const MenuAppBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              {/* these are the menu items for a mobile screen */}
+              <MenuItem key={"Home"} onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">Small Home</Typography>
+              </MenuItem>
+              <MenuItem key={"About"} onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">Small About</Typography>
+              </MenuItem>
+              <MenuItem key={"Blog"} onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">Small Blog</Typography>
+              </MenuItem>
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <SentimentSatisfiedAltIcon
+            sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
+          />
           <Typography
             variant="h5"
             noWrap
@@ -118,18 +124,30 @@ const MenuAppBar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            MySmallSite
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button
+              key={"Home"}
+              href="/"
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Home
+            </Button>
+            <Button
+              key={"About"}
+              href="/about"
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              About
+            </Button>
+            <Button
+              key={"Blog"}
+              href="/blog"
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Blog
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
