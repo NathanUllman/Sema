@@ -16,3 +16,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 - `cdk bootstrap aws://ACCOUNT_ID/us-east-1` deploy to an account
 
 - `cdk deploy --all` deploy all stacks
+
+## Notes
+
+- Make sure to run `npm run build` for all the backend lambdas before deploying (TODO)

@@ -7,7 +7,9 @@ This website is my playgroud, where I just try out AWS or React ideas. It does n
 _Why is it called Semaphore?_ : It's a programming word and I like it. There might have a deeper meaning where "This website coordinates my many thread of curiosity" but I haven't thought about it enough yet.
 
 Guide: https://cdkworkshop.com/20-typescript/20-create-project
-Also using: // https://dev.to/paulallies/deploy-your-static-react-app-to-aws-cloudfront-using-cdk-44hm
+Also using: https://dev.to/paulallies/deploy-your-static-react-app-to-aws-cloudfront-using-cdk-44hm
+Login guide: https://aws.amazon.com/blogs/networking-and-content-delivery/authorizationedge-using-cookies-protect-your-amazon-cloudfront-content-from-being-downloaded-by-unauthenticated-users/
+login sample code: https://github.com/aws-samples/cloudfront-authorization-at-edge
 
 ## How to Setup Project
 
@@ -33,7 +35,8 @@ npm install -g aws-cdk
 2. If using a new account, Update the S3 bucket name TODO
 3. If new account, do `cdk bootstrap` in the cdk folder
 4. Build the website/semaphore react app using `npm run build`
-5. Deploy by running `cdk deploy` in the cdk folder, you can now view the cloudfront url (e.g. https://d29kj88f4q5wq4.cloudfront.net/)
+5. Build the backend packages using `npm run build`
+6. Deploy by running `cdk deploy` in the cdk folder, you can now view the cloudfront url (e.g. https://d29kj88f4q5wq4.cloudfront.net/)
 
 ## Helpful commands
 

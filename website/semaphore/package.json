@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && rm -rf ../../cdk/build/website-ui && mkdir -p ../../cdk/build//website-ui && mv build/* ../../cdk/build//website-ui",
+    "build": "react-scripts build && rm -rf ../../cdk/build/website-ui && mkdir -p ../../cdk/build/website-ui && mv build/* ../../cdk/build//website-ui",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
