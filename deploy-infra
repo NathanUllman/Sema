@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Building Check Auth Lambda@Edge"
+cd backend/lambda-edge/check-auth
+npm run build
+cd ../../.. # reset, not needed but helps make things cleaner
+
+echo "Building Parse Auth Lambda@Edge"
+cd backend/lambda-edge/check-auth
+npm run build
+cd ../../..
+
+echo "Deploying UI stack"
+cd cdk
+cdk synth # not needed, but catches build errors
+cdk deploy InstrastructureCore

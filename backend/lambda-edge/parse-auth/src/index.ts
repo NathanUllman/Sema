@@ -3,7 +3,7 @@
 
 
 export const handler = async (event) => {
-	console.log("In handler :)")
+	console.log("In parse-auth handler :)")
 	const response = {
 		status: "307",
 		statusDescription: "Temporary Redirect",

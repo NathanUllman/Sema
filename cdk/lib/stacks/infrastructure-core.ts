@@ -12,20 +12,27 @@ interface InstrastructureCoreProps extends StackProps {
 export class InstrastructureCore extends Stack {
 	cloudFrontWebDistribution: CloudFrontWebDistribution
 	parseAuthEdgeLambda: Function
+	checkAuthEdgelambda: Function
 
 	constructor(scope: Construct, id: string, props: InstrastructureCoreProps) {
 		super(scope, id, props);
 
-		const assetPath = "./build/backend/lambda-edge/parse-auth"
-
 		const originConfigs: SourceConfiguration[] = []
 
-		this.parseAuthEdgeLambda = new Function(this, id, {
+		this.parseAuthEdgeLambda = new Function(this, "ParseAuthEdgeLambda", {
 			functionName: "ParseAuthEdgeLambda",
 			runtime: Runtime.NODEJS_14_X,
 			handler: 'bundle.handler',
-			code: Code.fromAsset(assetPath),
+			code: Code.fromAsset("./build/backend/lambda-edge/parse-auth"),
 		});
+
+		this.checkAuthEdgelambda = new Function(this, "CheckAuthEdgeLambda", {
+			functionName: "CheckAuthEdgeLambda",
+			runtime: Runtime.NODEJS_14_X,
+			handler: 'bundle.handler',
+			code: Code.fromAsset("./build/backend/lambda-edge/check-auth"),
+		});
+
 
 		// UI Assets Bucket (React App)
 		originConfigs.push({
@@ -46,6 +53,12 @@ export class InstrastructureCore extends Stack {
 
 				}, {
 					isDefaultBehavior: true,
+					compress: true,
+					lambdaFunctionAssociations: [{
+						eventType: LambdaEdgeEventType.VIEWER_REQUEST,
+						lambdaFunction: this.checkAuthEdgelambda.currentVersion,
+
+					}]
 				},
 
 			]
